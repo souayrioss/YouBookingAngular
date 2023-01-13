@@ -17,14 +17,14 @@ const routes: Routes = [
     component: RegisterComponent
   },
   {
-    path: 'error',
+    path: '404',
     component: NotFoundComponent
   },
   {
-    path: 'hotels',
+      path: 'hotels',
     component: DashboardComponent
   },
-  { path: '**', redirectTo: 'error'}
+  { path: '**', redirectTo: '404'}
 ];
 
 @NgModule({

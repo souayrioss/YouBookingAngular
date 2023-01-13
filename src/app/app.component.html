@@ -1,4 +1,38 @@
 <main>
+  <nav class="grid grid-cols-5 px-10 py-4" *ngIf="!errorPage">
+    <div class=" ">
+      <img src="../assets/img/logo.png" alt="logo" style="width: 250px"/>
+    </div>
+    <div class="grid grid-rows-2 col-span-4 gap-5" *ngIf="!authPage">
+      <div  class="flex  justify-between row-start-1 col-start-4 ">
+        <form action="">
+          <a href=""  class="uppercase cursor-pointer text-base font-semibold border-b-2 border-black">Recherche <span class=""><i class="fa-solid fa-magnifying-glass ml-10"></i> </span></a>
+        </form>
+        <div class="gap-5">
+          <a class="uppercase text-sm mr-3 font-semibold" href=""></a>
+          <a class="uppercase text-sm mr-3" href="register" routerLink="/register">Se connecter</a>
+          <a class="uppercase text-sm mr-3" href="">Aide</a>
+          <a class="" href=""><i class="bi bi-building"></i></a>
+        </div>
+      </div>
+      <div class="hidden w-full md:block md:w-auto row-start-2 col-start-2 col-end-5 " id="mobile-menu" >
+        <ul class="flex flex-col gap-10 mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-normal">
+          <li>
+            <a href="<?php echo URLROOT ;?>/Clients" class="uppercase text-base text-slate-500" >Hébergements</a>
+          </li>
+          <li>
+            <a href="" class="uppercase text-base text-slate-500">Vols</a>
+          </li>
+          <li>
+            <a href="" class="uppercase text-base text-slate-500">Voitures de location</a>
+          </li>
+          <li>
+            <a href="" class="uppercase text-base text-slate-500">Taxis aéroport</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
   <router-outlet></router-outlet>
 </main>
 
