@@ -1,25 +1,38 @@
-<section class="w-screen grid grid-cols-12 content-center h-[550px]">
+<section class="w-screen grid grid-cols-12 content-center h-[400px]">
   <article class="col-start-2 col-end-5 ">
-    <h2 class="uppercase text-4xl font-semibold mb-10">Démarrer la session</h2>
-    <form method="POST" action="">
-      <div class="relative z-0 w-full mb-6 group">
-        <input id="email" type="email" name="email" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-300 peer" value="" placeholder=" " required="">
-        <label for="email" class="peer-focus:font-medium absolute text-sm   duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-300 peer-focus:dark:text-blue-300 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email address</label>
-      </div>
+    <h2 class="uppercase text-4xl font-semibold mb-10 tracking-wider">Démarrer la session</h2>
+    <form method="POST" action="" [formGroup]="loginForm">
       <div class="relative z-0 w-full mb-9 group">
-        <input type="password" name="password" id="password" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-blue-300 peer" placeholder=" " required="">
-        <label for="password" class="peer-focus:font-medium absolute text-sm   duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-300 peer-focus:dark:text-blue-300 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password</label>
+        <input id="email" type="email" name="email" formControlName="email" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-300 peer" value="" placeholder=" " required="">
+        <label for="email" class="peer-focus:font-medium absolute text-base   duration-500 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-300 peer-focus:dark:text-blue-300 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email address</label>
+        <div class="absolute text-red-600 font-semibold -bottom-6 left-0 text-xs position-absolute" *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+          <p class="" *ngIf="email?.errors?.['email']"><i class="bi bi-exclamation-circle"></i> L'email est invalide </p>
+          <p class="" *ngIf="email?.errors?.['required']" ><i class="bi bi-exclamation-circle"></i> Veuillez saisir votre email</p>
+        </div>
+      </div>
+      <div class="relative z-0 w-full mb-10 group">
+        <input type="password" name="password" id="password" formControlName="password" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-blue-300 peer" placeholder=" " required="">
+        <label for="password" class="peer-focus:font-medium absolute text-base   duration-500 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-300 peer-focus:dark:text-blue-300 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password</label>
+        <div class="absolute text-red-600 font-semibold  -bottom-6 left-0 text-xs position-absolute" *ngIf="password?.invalid && (password?.dirty || password?.touched)">
+          <p class="" *ngIf="password?.errors?.['minlength']"><i class="bi bi-exclamation-circle"></i> Le mot de passe est invalide </p>
+          <p class="" *ngIf="password?.errors?.['required']" ><i class="bi bi-exclamation-circle"></i> Veuillez saisir votre mot de passe</p>
+        </div>
+      </div>
+      <div class="flex items-start mb-4">
+        <input id="check" name="session" formControlName="session"
+               value="remember-me" type="checkbox"  class="w-4 h-4 accent-black bg-gray-700 border-blue-500  focus:outline-none " checked>
+        <label for="check" class="ml-2 text-xs font-medium text-gray-900  w-2/3">Se souvenir de moi</label>
       </div>
       <div class="flex gap-5">
-        <button type="submit" class="uppercase w-4/5 text-base font-semibold text-white inline-block text-center bg-black border border-white py-3 hover:bg-gray-900 ">se connecter</button>
-        <button type="submit" class="uppercase w-1/6 text-xl font-semibold inline-block text-center bg-white border border-black  hover:bg-gray-900 hover:text-white"><i class="bi bi-google"></i></button>
+        <button [disabled]="!loginForm.valid" (click)="login($event)"  type="submit" class="uppercase w-4/5 text-base font-semibold text-white inline-block text-center bg-black border border-white py-3 hover:bg-gray-900 ">se connecter</button>
+        <button  class="uppercase w-1/6 text-xl font-semibold inline-block text-center bg-white border border-black  hover:bg-gray-900 hover:text-white"><i class="bi bi-google"></i></button>
       </div>
     </form>
   </article>
   <article class="col-start-6 col-end-10">
-    <h2 class="uppercase text-3xl font-semibold mb-10">Inscrivez-vous</h2>
-    <p class="uppercase text-sm font-normal my-6 text-gray-700">Si vous n'avez pas encore de compte d'utilisateur de YouBooking.com, utilisez cette option pour accéder au formulaire d'inscription. </p>
-    <p class="uppercase text-sm  font-normal mb-10  text-gray-700">Nous vous demanderons les informations nous permettant d'accélérer le processus de reservation.</p>
+    <h2 class="uppercase text-3xl font-semibold mb-8 mt-4 tracking-widest">Inscrivez-vous</h2>
+    <p class="uppercase text-sm font-normal my-6 text-gray-700 leading-6 tracking-widest">Si vous n'avez pas encore de compte d'utilisateur de YouBooking.com, utilisez cette option pour accéder au formulaire d'inscription. </p>
+    <p class="uppercase text-sm  font-normal mb-12  text-gray-700 leading-6 tracking-widest">Nous vous demanderons les informations nous permettant d'accélérer le processus de reservation.</p>
     <a routerLink="/register"  class=" uppercase text-base font-semibold text-white inline-block text-center bg-black border border-white  px-16 py-3 hover:bg-gray-900 ">créer un compte</a>
   </article>
 </section>
