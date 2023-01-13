@@ -1,0 +1,61 @@
+<section class="w-screen grid grid-cols-12 content-center h-[550px]">
+  <article class="col-start-2 col-end-6 ">
+    <h2 class="uppercase text-3xl font-semibold mb-8">Informations personnelles</h2>
+    <form method="POST" [formGroup]="registerForm">
+      <div class="relative z-0 w-full mb-9 group">
+        <input id="email" type="email" name="email" formControlName="email" class="block py-2.5 px-0 w-1/2 text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-300 peer" value="" placeholder=" " required="">
+        <label for="email" class="peer-focus:font-medium absolute text-base   duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-300  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">E-mail adresse</label>
+        <div class="absolute text-red-600 font-semibold -bottom-6 left-0 text-xs position-absolute" *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+          <p class="" *ngIf="email?.errors?.['email']"><i class="bi bi-exclamation-circle"></i> L'email est invalide </p>
+          <p class="" *ngIf="email?.errors?.['required']" ><i class="bi bi-exclamation-circle"></i> Veuillez saisir votre email</p>
+        </div>
+      </div>
+      <div class="grid xl:grid-cols-2 xl:gap-6">
+        <div class="relative z-0 w-full mb-9 group">
+          <input type="password" name="password" id="password" formControlName="password" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-blue-300 peer" value="" placeholder=" " required="">
+          <label for="password" class="peer-focus:font-medium absolute text-base   duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-300  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Mot de passe</label>
+          <div class="absolute text-red-600 font-semibold -bottom-6 left-0 text-xs position-absolute" *ngIf="password?.invalid && (password?.dirty || password?.touched)">
+            <p class="" *ngIf="password?.errors?.['email']"><i class="bi bi-exclamation-circle"></i> L'email est invalide </p>
+            <p class="" *ngIf="password?.errors?.['required']" ><i class="bi bi-exclamation-circle"></i> Veuillez saisir votre email</p>
+          </div>
+        </div>
+        <div class="relative z-0 w-full mb-9 group">
+          <input type="password" name="repeat_password" id="repeat_password" formControlName="repeat_password" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-blue-300 peer" value="" placeholder=" " required="">
+          <label for="repeat_password" class="peer-focus:font-medium absolute text-base   duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-300  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Confirme Mot de passe</label>
+          <div class="absolute text-red-600 font-semibold -bottom-6 left-0 text-xs position-absolute" *ngIf="repeat_password?.invalid && (repeat_password?.dirty || repeat_password?.touched)">
+            <p class="" *ngIf="repeat_password?.errors?.['email']"><i class="bi bi-exclamation-circle"></i> L'email est invalide </p>
+            <p class="" *ngIf="repeat_password?.errors?.['required']" ><i class="bi bi-exclamation-circle"></i> Veuillez saisir votre email</p>
+          </div>
+        </div>
+      </div>
+      <div class="grid xl:grid-cols-2 xl:gap-6">
+        <div class="relative z-0 w-full mb-9 group">
+          <input type="text" name="fullName" id="fullName" formControlName="fullName" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-blue-300 peer" value="" placeholder=" " required="">
+          <label for="fullName" class="peer-focus:font-medium absolute text-base   duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-300  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nom Complet</label>
+          <div class="absolute text-red-600 font-semibold -bottom-6 left-0 text-xs position-absolute" *ngIf="fullName?.invalid && (fullName?.dirty || fullName?.touched)">
+            <p class="" *ngIf="fullName?.errors?.['pattern']"><i class="bi bi-exclamation-circle"></i> L'email est invalide </p>
+            <p class="" *ngIf="fullName?.errors?.['required']" ><i class="bi bi-exclamation-circle"></i> Veuillez saisir votre email</p>
+          </div>
+        </div>
+        <div class="relative z-0 w-full mb-9 group">
+          <input type="text" name="phone" id="phone" formControlName="phone" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-blue-300 peer" value="" placeholder=" " required="">
+          <label for="phone" class="peer-focus:font-medium absolute text-base   duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-300  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Telephone</label>
+          <div class="absolute text-red-600 font-semibold -bottom-6 left-0 text-xs position-absolute" *ngIf="phone?.invalid && (phone?.dirty || phone?.touched)">
+            <p class="" *ngIf="phone?.errors?.['pattern']"><i class="bi bi-exclamation-circle"></i> L'email est invalide </p>
+            <p class="" *ngIf="phone?.errors?.['required']" ><i class="bi bi-exclamation-circle"></i> Veuillez saisir votre email</p>
+          </div>
+        </div>
+      </div>
+      <div class="flex items-start mb-4">
+        <input id="check1" name="check1" type="checkbox" value="" class="w-4 h-4 accent-black bg-gray-700 border-blue-500  focus:outline-none " checked>
+        <label for="check1" class="ml-2 text-xs font-medium text-gray-900  w-2/3">Je souhaite recevoir des communications commerciales personnalisées de la part de youBooking via e-mail.</label>
+      </div>
+
+      <div class="flex items-start mb-4">
+        <input id="check2" name="check2" type="checkbox"  value="" class="w-4 h-4 accent-black  bg-gray-100 border-blue-500  focus:outline-none " checked>
+        <label for="check2" class="ml-2 text-xs font-medium text-gray-900  w-2/3">J'ai lu et compris la Politique de confidentialité et en matière de cookies.</label>
+      </div>
+      <button type="submit" [disabled]="!registerForm.valid" (click)="register()" name="register" class="uppercase text-base font-semibold text-white inline-block text-center bg-black border border-white  px-20 py-3 hover:bg-gray-900 ">créer un compte</button>
+    </form>
+  </article>
+</section>
