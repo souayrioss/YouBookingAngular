@@ -1,9 +1,9 @@
 <main>
-  <nav class="grid grid-cols-5 px-10 py-4" *ngIf="!errorPage">
-    <div class=" ">
-      <img src="../assets/img/logo.png" alt="logo" style="width: 250px"/>
+  <nav class="grid grid-cols-10 px-10 py-4" *ngIf="!errorPage">
+    <div class="col-start-2 col-end-4">
+      <img src="../assets/img/logo.png" alt="logo" style="width:200px"/>
     </div>
-    <div class="grid grid-rows-2 col-span-4 gap-5" *ngIf="!authPage">
+    <div class="grid grid-rows-2 col-start-4 col-span-8 gap-5" *ngIf="!authPage">
       <div  class="flex  justify-between row-start-1 col-start-4 ">
         <form action="">
           <a href=""  class="uppercase cursor-pointer text-base font-semibold border-b-2 border-black">Recherche <span class=""><i class="fa-solid fa-magnifying-glass ml-10"></i> </span></a>
@@ -18,7 +18,7 @@
       <div class="hidden w-full md:block md:w-auto row-start-2 col-start-2 col-end-5 " id="mobile-menu" >
         <ul class="flex flex-col gap-10 mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-normal">
           <li>
-            <a href="<?php echo URLROOT ;?>/Clients" class="uppercase text-base text-slate-500" >Hébergements</a>
+            <a href="hotels" class="uppercase text-base text-slate-500" >Hébergements</a>
           </li>
           <li>
             <a href="" class="uppercase text-base text-slate-500">Vols</a>
