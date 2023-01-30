@@ -1,38 +1,52 @@
+<nav class="grid grid-cols-10 px-10 py-4" *ngIf="!errorPage">
+  <div class="col-start-2 col-end-4">
+    <img src="../assets/img/logo.png" alt="logo" style="width:200px"/>
+  </div>
+  <div class="grid grid-rows-2 col-start-4 col-span-8 gap-5" *ngIf="!authPage">
+    <div  class="flex  justify-between row-start-1 col-start-4 ">
+      <form action="">
+        <a href=""  class="uppercase cursor-pointer text-base font-semibold border-b-2 border-black">Recherche <span class=""><i class="fa-solid fa-magnifying-glass ml-10"></i> </span></a>
+      </form>
+      <div class="gap-5">
+        <a class="uppercase text-sm mr-3 font-semibold" href=""></a>
+        <a class="uppercase text-sm mr-3" href="register" routerLink="/register">Se connecter</a>
+        <a class="uppercase text-sm mr-3" href="">Aide</a>
+        <a class="" href=""><i class="bi bi-building"></i></a>
+      </div>
+    </div>
+    <div class="hidden w-full md:block md:w-auto row-start-2 col-start-2 col-end-5 " id="mobile-menu" >
+      <ul class="flex flex-col gap-10 mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-normal">
+        <li>
+          <a href="hotels" class="uppercase text-base text-slate-500" >Hébergements</a>
+        </li>
+        <li>
+          <a href="" class="uppercase text-base text-slate-500">Vols</a>
+        </li>
+        <li>
+          <a href="" class="uppercase text-base text-slate-500">Voitures de location</a>
+        </li>
+        <li>
+          <a href="" class="uppercase text-base text-slate-500">Taxis aéroport</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 <main>
-  <nav class="grid grid-cols-10 px-10 py-4" *ngIf="!errorPage">
-    <div class="col-start-2 col-end-4">
-      <img src="../assets/img/logo.png" alt="logo" style="width:200px"/>
-    </div>
-    <div class="grid grid-rows-2 col-start-4 col-span-8 gap-5" *ngIf="!authPage">
-      <div  class="flex  justify-between row-start-1 col-start-4 ">
-        <form action="">
-          <a href=""  class="uppercase cursor-pointer text-base font-semibold border-b-2 border-black">Recherche <span class=""><i class="fa-solid fa-magnifying-glass ml-10"></i> </span></a>
-        </form>
-        <div class="gap-5">
-          <a class="uppercase text-sm mr-3 font-semibold" href=""></a>
-          <a class="uppercase text-sm mr-3" href="register" routerLink="/register">Se connecter</a>
-          <a class="uppercase text-sm mr-3" href="">Aide</a>
-          <a class="" href=""><i class="bi bi-building"></i></a>
-        </div>
-      </div>
-      <div class="hidden w-full md:block md:w-auto row-start-2 col-start-2 col-end-5 " id="mobile-menu" >
-        <ul class="flex flex-col gap-10 mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-normal">
-          <li>
-            <a href="hotels" class="uppercase text-base text-slate-500" >Hébergements</a>
-          </li>
-          <li>
-            <a href="" class="uppercase text-base text-slate-500">Vols</a>
-          </li>
-          <li>
-            <a href="" class="uppercase text-base text-slate-500">Voitures de location</a>
-          </li>
-          <li>
-            <a href="" class="uppercase text-base text-slate-500">Taxis aéroport</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
   <router-outlet></router-outlet>
 </main>
-
+<footer class="my-20 w-4/5 mx-auto border-t-2 border-black" *ngIf="!authPage && !errorPage">
+  <div class="grid grid-rows-3 place-content-center mt-20 gap-14">
+    <h2 class="uppercase text-2xl font-bold text-center">abonnez-vous à notre newsletter </h2>
+    <ul class="flex justify-center gap-8">
+      <li class="uppercase text-sm font-extralight text-slate-600 tracking-tighter">twitter</li>
+      <li class="uppercase text-sm font-extralight text-slate-600 tracking-tighter">Facebook</li>
+      <li class="uppercase text-sm font-extralight text-slate-600 tracking-tighter">Etsy</li>
+      <li class="uppercase text-sm font-extralight text-slate-600 tracking-tighter">instagram</li>
+      <li class="uppercase text-sm font-extralight text-slate-600 tracking-tighter">Youtube</li>
+      <li class="uppercase text-sm font-extralight text-slate-600 tracking-tighter">Printrest</li>
+      <li class="uppercase text-sm font-extralight text-slate-600 tracking-tighter">Tiktok</li>
+    </ul>
+    <span class="uppercase text-xs font-light text-slate-800 tracking-widest "><a href="#" >Pramètres des cookies</a> | <a href="#">POLITIQUE DE CONFIDENTIALITÉ ET UTILISATION DES COOKIES </a> | <a href="#">CONDITIONS DE RESERVATION </a> </span>
+  </div>
+</footer>
