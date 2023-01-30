@@ -1,0 +1,12 @@
+<section class="flex justify-evenly  flex-wrap mx-10 px-10 gap-6 mt-16">
+  <div class=" px-14 py-7 bg-white border border-2 border-blue-300  shadow-xl shadow-blue-300 min-w-[250px]" *ngFor="let user of users">
+    <div class="flex flex-col items-center">
+      <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">{{user.fullName}}</h5>
+      <span class="text-sm text-gray-500 dark:text-gray-400">{{user.email}}</span>
+      <span class="text-sm text-gray-500 dark:text-gray-400">{{user.phone}}</span>
+      <div class="flex mt-4 gap-2">
+        <button (click)="bannerUser(user.uuid)" class="text-sm font-semibold text-white inline-block text-center bg-black border border-white px-4 py-2 hover:bg-gray-900 ">Banner</button>
+      </div>
+    </div>
+  </div>
+</section>

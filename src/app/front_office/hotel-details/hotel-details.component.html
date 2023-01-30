@@ -1,0 +1,118 @@
+
+<div class="bg-white">
+  <div class="pt-6">
+    <!-- Image gallery -->
+
+    <div class="mt-6 max-w-2xl mx-auto sm:px-6 lg:max-w-7xl lg:grid lg:grid-cols-12 ">
+      <div class="hidden aspect-w-3 aspect-h-4  overflow-hidden lg:block lg:col-start-1 lg:col-end-7 lg:px-4">
+        <img class="w-[550px] h-[450px]" src="../assets/img/image-1.jpg" alt="" />
+      </div>
+      <div class="grid grid-cols-2 lg:col-start-7 lg:col-end-13  gap-2 p-4 mt-4">
+        <div class="lg:block">
+          <img class="w-full h-[220px]" class="" src="../assets/img/image-1.jpg" alt="" />
+        </div>
+        <div class="">
+          <img class="w-full h-[220px]" class="" src="../assets/img/image-1.jpg" alt="" />
+        </div>
+        <div class="">
+          <img class="w-full h-[220px]" class="" src="../assets/img/image-1.jpg" alt="" />
+        </div>
+        <div class="">
+          <img class="w-full h-[220px]" class="" src="../assets/img/image-1.jpg" alt="" />
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Product info -->
+    <div class="max-w-2xl mx-auto pt-10 pb-16 px-4 sm:px-6 lg:max-w-7xl lg:pt-16 lg:pb-24 lg:px-8 lg:grid lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8">
+      <div class="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
+        <h1 class="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">{{hotel.name}}</h1>
+      </div>
+
+      <!-- Options -->
+      <div class="mt-4 lg:mt-0 lg:row-span-3">
+        <h2 class="text-2xl uppercase mb-2">Hotel information</h2>
+        <h2 class="text-base uppercase my-2">Nombre du chambre : <span class="text-xl ">{{rooms.length}}</span></h2>
+        <h2 class="text-sm uppercase my-2">Type du Chambre  : <span class="text-sm font-semibold"><ul class="ml-10">
+        <li *ngFor="let type of typeRoom">* {{type.toString()}}</li>
+        </ul>
+        </span></h2>
+
+
+        <form class="mt-10" method="POST" action="">
+          <!-- Colors -->
+          <input type="hidden" name="produit_id" value="{{hotel.id}}">
+          <div>
+            <h3 class="text-xl uppercase mb-2 tracking-wide font-semibold">Reservation</h3>
+            <div class="flex flex-wrap ">
+              <div class="flex flex-col gap-2 items-center mr-4">
+                <div *ngFor="let type of typeRoom">
+                  <span class="mr-2 font-semibold">{{type.toString()}}</span>
+                  <div class="relative inline-flex self-center">
+                    <svg class="text-white bg-blue-400 absolute top-2 right-2  pointer-events-none p-1 " xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 38 22" version="1.1">
+                      <g id="ZahnhelferDE—Design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g id="ZahnhelferDE–Icon&amp;Asset-Download" transform="translate(-539.000000, -199.000000)" fill="#ffffff" fill-rule="nonzero">
+                          <g id="Icon-/-ArrowRight-Copy-2" transform="translate(538.000000, 183.521208)">
+                            <polygon id="Path-Copy" transform="translate(20.000000, 18.384776) rotate(135.000000) translate(-20.000000, -18.384776) " points="33 5.38477631 33 31.3847763 29 31.3847763 28.999 9.38379168 7 9.38477631 7 5.38477631"/>
+                          </g>
+                        </g>
+                      </g>
+                    </svg>
+                    <select class="text-base font-bold  border-2 border-blue-400 text-gray-600 h-8 w-40 px-2  bg-white hover:border-gray-400 focus:outline-none appearance-none">
+                      <option>0</option>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="flex mt-4">
+              <input datepicker type="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  focus:ring-red-300 focus:border-blue-300 block w-2/5 p-2.5 " placeholder="Select date">
+              <span class="mt-2  font-semibold uppercase mx-2">to</span>
+              <input datepicker type="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  focus:ring-red-300 focus:border-blue-300 block w-2/5 py-1 px-2  " placeholder="Select date">
+            </div>
+          </div>
+          <button type="submit" class="uppercase text-base font-semibold text-white inline-block text-center bg-black border border-white  px-16 py-3 hover:bg-gray-900 mt-10">ajouter au panier</button>
+        </form>
+      </div>
+
+
+      <div class="py-10 lg:pt-6 lg:pb-16 lg:col-start-1 lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
+        <!-- Description and details -->
+        <div>
+          <h3 class="text-xl uppercase mb-2">Description</h3>
+
+          <div class="space-y-6">
+            <p class="text-base text-gray-900">
+              Toutes les chambres comprennent une télévision à écran plat. Certaines sont dotées d'un coin salon pour se détendre. Vous pourrez prendre une tasse de thé ou de café tout en admirant la vue sur le jardin ou sur la ville. Chaque hébergement est muni d'une salle de bains privative avec une douche. Des peignoirs, des chaussons et des articles de toilette gratuits sont fournis.
+              <br>
+              La réception est ouverte 24h/24.
+              <br>
+              L'établissement assure en outre un service de location de voitures. La corniche d'Ain Diab se trouve à moins de 4 km du Down Town Hotel By Business & Leisure Hotels, tandis que le centre commercial Maroc Mall est accessible à 6 km. L'aéroport international Mohammed V de Casablanca, le plus proche, est situé à 24 km.
+              <br>
+              Les couples apprécient particulièrement l'emplacement de cet établissement. Ils lui donnent la note de 8,9 pour un séjour à deux.
+          </div>
+        </div>
+
+        <div class="mt-10">
+          <h3 class="text-sm font-medium text-gray-900">Highlights</h3>
+
+          <div class="mt-4">
+            <ul role="list" class="pl-4 list-disc text-sm space-y-2">
+              <li class="text-gray-400"><span class="text-gray-600"> Bonne situation géographique : très bien notée par de récents voyageurs (9,3)</span></li>
+              <li class="text-gray-400"><span class="text-gray-600"> Vous rêvez d'une bonne nuit de sommeil ? Cet hôtel a obtenu une bonne note pour ses lits très confortables. </span></li>
+              <li class="text-gray-400"><span class="text-gray-600">Vue sur la ville / Vue sur le jardin / Terrasse </span></li>
+              <li class="text-gray-400"><span class="text-gray-600">Cet établissement compte plus de voyageurs réguliers que la plupart des établissements.</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

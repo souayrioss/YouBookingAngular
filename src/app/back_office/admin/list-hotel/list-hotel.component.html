@@ -1,0 +1,13 @@
+<section class="flex   flex-wrap px-10 mx-32 gap-6 mt-16">
+  <div class="flex flex-col items-center bg-white border rounded-lg shadow-md md:flex-row md:max-w-[690px]  hover:bg-gray-100 " *ngFor="let hotel of hotels">
+    <img class="object-cover w-[65%] rounded-t-lg h-full md:h-auto  md:rounded-none md:rounded-l-lg" src="../assets/img/image-1.jpg" alt="">
+    <div class="flex flex-col justify-between p-2 leading-normal">
+      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{hotel.name}}</h5>
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{hotel.description}}</p>
+      <div class="flex mt-4 gap-2">
+        <button (click)="approveHotel(hotel.id)"  class="text-base font-semibold text-black inline-block text-center bg-white border border-white px-10 py-2 hover:bg-gray-700 hover:text-white ">Accepter</button>
+        <button  (click)="rejectedHotel(hotel.id)" class="text-base font-semibold text-white inline-block text-center bg-black border border-black px-10 py-2 hover:bg-blue-200 hover:text-black">Refuser</button>
+      </div>
+    </div>
+  </div>
+</section>
