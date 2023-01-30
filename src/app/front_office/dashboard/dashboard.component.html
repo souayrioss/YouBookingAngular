@@ -1,0 +1,44 @@
+<section id="home" class="relative w-screen h-[300px] mt-12 mb-20">
+  <div class="grid grid-cols-12 items-center content-center h-full">
+    <div class="col-start-2 col-end-8 flex flex-col ml-4 ">
+      <h1 class="text-5xl font-bold  uppercase mb-2">Trouvez votre prochain </h1>
+      <span class="text-5xl font-bold uppercase ">séjour</span>
+      <p class="tracking-wider mt-6 leading-6">Recherchez des offres sur des hôtels, des hébergements <br> indépendants et plus encore</p>
+      <form class="absolute border-4 mt-14 flex bottom-0 bg-blue-400">
+        <input class="border-2 p-1 border-blue-400 rounded" type="text" value=""placeholder="Où allez-vous ?" >
+        <input class="border-2 p-1 border-blue-400 rounded" type="date" value=""  >
+        <input class="border-2 p-1 border-blue-400 rounded" type="date" value="" >
+        <input class="border-2 p-1 border-blue-400 rounded" type="number" value="Ville" >
+        <button type="submit" class="p-1 border-blue-400 uppercase text-base font-semibold text-white inline-block text-center bg-black border border-white py-3 px-9 hover:bg-gray-900 ">Recherche</button>
+      </form>
+    </div>
+    <div  class="absolute right-32 col-start-8 ">
+      <img itemprop="image" class="h-[600px]" src="assets/img/planet.png" alt="planet-image"/>
+    </div>
+  </div>
+</section>
+<section >
+  <h2 class="ml-32 mb-10 text-4xl font-bold ">
+    Hôtels
+  </h2>
+  <div class="w-screen px-32 flex justify-start flex-wrap justify-items-start gap-4">
+    <div class="max-w-sm bg-white border border-gray-200  shadow-lg rounded-none " *ngFor="let hotel of hotels">
+      <a href="#">
+        <img class="" src="../assets/img/image-1.jpg" alt="" />
+      </a>
+      <div class="p-5">
+        <a href="#">
+          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">{{hotel.name}}</h5>
+        </a>
+        <p class="mb-3 font-normal text-gray-700">{{hotel.description}}</p>
+        <a href="/hotel/{{hotel.id}}" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-black rounded-none hover:bg-white hover:text-black hover:border-2 hover:border-black focus:ring-4 focus:outline-none focus:ring-blue-300 ">
+          Read more
+          <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
