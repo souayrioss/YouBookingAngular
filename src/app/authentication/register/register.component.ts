@@ -35,31 +35,11 @@ register(){
     };
     this.userService.registerRequest = this.regRequest;
     this.userService.save_user();
-    this.userService.log_user();
-    this.registerRequest=this.userService.loginSubject.subscribe(
+    this.registerRequest=this.userService.registerSubject.subscribe(
       ( data: any ) => {
-        console.log(data);
-        // this.loaderCode=false;
-/*        let token:string = data.message;
-        console.log(token)
-        let decodedJWT = JSON.parse(window.atob(token.split('.')[1]));
-        console.log(decodedJWT)
-        console.log("test")*/
-/*        if(decodedJWT.role == "USER_CLIENT"){role = "client"}else {role="admin"}
-        if (formValues.session != true) {
-          sessionStorage.setItem("logged", "signIn");
-          sessionStorage.setItem("role", role);
-          sessionStorage.setItem("token", token);
-          sessionStorage.setItem("comp", decodedJWT.company);
-        } else {
-          localStorage.setItem("logged", "signIn");
-          localStorage.setItem("role", role);
-          localStorage.setItem("token", token);
-          localStorage.setItem("comp", decodedJWT.company);
-        }
-
-        if(role=="admin") window.location.href ='/register';
-        if(role=="client") window.location.href ='/hotels';*/
+        console.log(data.message);
+        console.log(data.status);
+        console.log(data.data);
       });
   }
 }
