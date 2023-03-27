@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {User} from "./class/user";
+import {User} from "./models/user";
 import {urlServer} from "../global_constants";
-import {Subject} from "rxjs";
+import {Observable, Subject} from "rxjs";
+import {DtoResponse} from "./dto/dto-response";
+import {Hotel} from "./models/hotel";
 
 @Injectable({
   providedIn: 'root'
@@ -63,5 +65,16 @@ export class UserService {
           this.registerSubject.complete();
         }
       );
+  }
+  getUsers():Observable<DtoResponse<Set<User>>>{
+    return this.httpClient.get<DtoResponse<Set<User>>>("http://localhost:9999/api/v1/user/users");
+  }
+  bannerUser(uuid:string){
+    this.userSubject = new Subject();
+    this.httpClient.get("http://localhost:9999/api/v1/user/userBanner/"+uuid).subscribe((response: any) => {
+        this.userSubject.next(response);
+        this.userSubject.complete();
+      }
+    );
   }
 }

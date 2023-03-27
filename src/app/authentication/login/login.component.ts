@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {UserService} from "../../rest_services/user.service";
 import {Router} from "@angular/router";
-import {User} from "../../rest_services/class/user";
+import {User} from "../../rest_services/models/user";
 
 
 @Component({
@@ -47,18 +47,22 @@ export class LoginComponent implements OnInit {
             let role;
             if(decodedJWT.role == "USER_CLIENT"){role = "client"}else {role="admin"}
           if (formValues.session != true) {
-            sessionStorage.setItem("logged", "signIn");
+            sessionStorage.setItem("logged", "logged");
             sessionStorage.setItem("role", role);
             sessionStorage.setItem("token", token);
-            sessionStorage.setItem("comp", decodedJWT.company);
+            sessionStorage.setItem("comp", decodedJWT.sub);
+            sessionStorage.setItem("name", decodedJWT.name);
+            sessionStorage.setItem("uuid", decodedJWT.userId);
           } else {
-            localStorage.setItem("logged", "signIn");
+            localStorage.setItem("logged", "logged");
             localStorage.setItem("role", role);
             localStorage.setItem("token", token);
-            localStorage.setItem("comp", decodedJWT.company);
+            localStorage.setItem("comp", decodedJWT.sub);
+            localStorage.setItem("name", decodedJWT.name);
+            localStorage.setItem("uuid", decodedJWT.userId);
           }
 
-          if(role=="admin") window.location.href ='/register';
+          if(role=="admin") window.location.href ='/manager/hotels';
             if(role=="client") window.location.href ='/hotels';
           });
     }
